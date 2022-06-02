@@ -1,30 +1,40 @@
 import './App.css';
 import React, { useState } from "react";
-import Form from './Form';
-import List from './List';
+import Form from './components/Form';
+import List from './components/List';
+import TotalMoney from './components/TotalMoney';
+import { GlobalStyle, HeaderStyle, MainStyle } from './style/style';
 
 
 function App() {
-  const [listTransactions, setListTransactions] = useState([
-    { description: "Salário recebido", type: "entrada", value: 2500 },
-    { description: "Conta de luz", type: "saída", value: -150 }
-  ])
+  const [listTransactions, setListTransactions] = useState([])
+  const[list, setList] = useState(listTransactions)
+
   console.log(listTransactions)
   return (
+    <>
+    <GlobalStyle/>
     <div className="App">
+      <HeaderStyle>
       <header className='App-header'>
         <div className='logo-nu'>
-          <span>nu</span>
-          <span>Kenzie</span>
+          <span className='logo1'>Nu</span><span className='logo2' >Kenzie</span>
         </div>
         <button>Início</button>
       </header>
+      </HeaderStyle>
+      <MainStyle>
       <main>
-        <Form listTransactions={listTransactions} setListTransactions={setListTransactions}/>
-        <List listTransactions={listTransactions}/>
-
+        <section>
+          <Form  list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions}/>
+          <TotalMoney listTransactions={listTransactions}/>
+        </section>
+        <List list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions}/>
+        
       </main>
+      </MainStyle>
     </div>
+    </>
   );
 }
 
