@@ -8,9 +8,21 @@ import { GlobalStyle, HeaderStyle, MainStyle } from './style/style';
 
 function App() {
   const [listTransactions, setListTransactions] = useState([])
-  const[list, setList] = useState(listTransactions)
+  const [list, setList] = useState(listTransactions)
 
-  console.log(listTransactions)
+  function filtro(event){
+    if(event !==undefined && event.target.innerText === "Entradas"){
+        const entradas = listTransactions.filter((item)=>item.type === "entrada")
+        return setList(entradas)
+    }else if(event !==undefined && event.target.innerText === "Saídas"){
+        const saidas = listTransactions.filter((item)=>item.type === "saída")
+        return setList(saidas)
+    } else {
+        const todos = listTransactions.filter((item)=>item)
+        return setList(todos)
+    }
+  }
+
   return (
     <>
     <GlobalStyle/>
@@ -25,12 +37,13 @@ function App() {
       </HeaderStyle>
       <MainStyle>
       <main>
-        <section>
-          <Form  list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions}/>
+        <aside>
+          <Form list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions} filtro={filtro}/>
           <TotalMoney listTransactions={listTransactions}/>
-        </section>
-        <List list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions}/>
-        
+        </aside>
+        <section>
+          <List list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions} filtro={filtro}/>
+          </section>
       </main>
       </MainStyle>
     </div>

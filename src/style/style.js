@@ -53,7 +53,9 @@ export const HeaderStyle = styled.header`
     
     header{
         width: 100vw;
-        padding: 1rem;
+        max-width: 100%;
+        min-width: 360px;
+        padding: 1rem 2rem;
         background: #F8F9FA;
         box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);  
         display: inline-flex;
@@ -91,17 +93,51 @@ export const MainStyle = styled.main`
     main{
         width: 100vw;
         max-width: 94%;
+        min-width: 360px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
     }
+    aside{
+        width: 100vw;
+        max-width: 100%;
+        margin: 1rem auto 1rem auto;
+    }
+
     section{
         width: 100vw;
         max-width: 100%;
         margin: 1rem auto 1rem auto;
     }
 
+    @media (min-width: 768px){
+        main{
+            display: flex;
+            max-width: 94%;
+            flex-direction: row;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            
+        }
+        aside{
+            max-width: 35%;
+            float: right; 
 
+        }
+        section{
+            max-width: 60%;
+           
+        }
+        
+
+
+
+
+
+
+
+    }
 `

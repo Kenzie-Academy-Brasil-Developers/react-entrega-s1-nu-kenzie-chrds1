@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { FormStyle } from "./style";
 
-function Form({listTransactions, setListTransactions}){
+function Form({list, setList, listTransactions, setListTransactions, filtro}){
     const [descricao, setDescricao] = useState("")
     const [valor, setValor] = useState(0)
     const [tipoValor, setTipoValor] = useState("")
@@ -12,9 +12,16 @@ function Form({listTransactions, setListTransactions}){
         value: valor
     };
 
-    function handleForm(event){
+    async function handleForm(event){
         event.preventDefault();
-        setListTransactions([...listTransactions, transation])
+        const {description, type, value} = transation 
+        if(description.length > 0 && type.length > 0 && value !== "selecione"){
+            await setListTransactions([...listTransactions, transation])
+            await setList([...listTransactions, transation])
+
+        }else {
+            alert("Erro: preencha todos os campos")
+        }
     }
     
     return(
@@ -40,7 +47,7 @@ function Form({listTransactions, setListTransactions}){
                         </select>
                     </div>
                 </div>
-                <button type="submit" >Inserir valor</button>
+                <button type="submit">Inserir valor</button>
             </form>
         </div>
         </FormStyle>

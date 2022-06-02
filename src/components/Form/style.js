@@ -16,6 +16,7 @@ export const FormStyle = styled.div`
         font-family: 'Inter';
         display: flex;
         flex-direction: column;
+        width: 100%;
         justify-content: space-between;
     }
     .container-descricao label{
@@ -48,7 +49,7 @@ export const FormStyle = styled.div`
     .container-div{
         display: inline-flex;
         align-items: baseline;
-        gap: .6rem;
+        justify-content: space-between;
         margin-top: 1rem;
     }
     .container-valor{
