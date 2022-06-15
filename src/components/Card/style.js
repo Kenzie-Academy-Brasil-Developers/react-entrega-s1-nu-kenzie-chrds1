@@ -19,8 +19,9 @@ export const CardStyle = styled.div`
     .descricao{
         display: flex;
         flex-direction: column;
-        width: ${(props=> props.descricaoWidth)};
+        min-width: ${(props=> props.descricaoWidth)};
         gap: 0.75rem
+        
     }
     .descricao h2{
         width: 100%;
@@ -40,6 +41,7 @@ export const CardStyle = styled.div`
         font-weight: 400;
     }
     .value{
+        justify-content: flex-start;
         color: #212529;
         font-size: .75rem;
         font-weight: 400;
@@ -52,10 +54,11 @@ export const CardStyle = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
     .trash .icon{
-        width: .5rem;
-        height: .5rem;
+        width: .875rem;
+        height: .875rem;
         color: #5B6166;
     }
 `

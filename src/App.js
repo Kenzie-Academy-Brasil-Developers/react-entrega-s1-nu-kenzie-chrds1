@@ -38,11 +38,21 @@ function App() {
       <MainStyle>
       <main>
         <aside>
-          <Form list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions} filtro={filtro}/>
+          <Form 
+            list={list} 
+            setList={setList} 
+            listTransactions={listTransactions} 
+            setListTransactions={setListTransactions} 
+            filtro={filtro}/>
           <TotalMoney listTransactions={listTransactions}/>
         </aside>
         <section>
-          <List list={list} setList={setList} listTransactions={listTransactions} setListTransactions={setListTransactions} filtro={filtro}/>
+          <List 
+            list={list} 
+            setList={setList} 
+            listTransactions={listTransactions} 
+            setListTransactions={setListTransactions} 
+            filtro={filtro}/>
           </section>
       </main>
       </MainStyle>
